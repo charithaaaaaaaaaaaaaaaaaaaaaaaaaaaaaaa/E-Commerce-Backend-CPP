@@ -1,6 +1,7 @@
 #include "headers/json.hpp"
 #include "headers/buyer.hpp"
 #include "headers/seller.hpp"
+#include "headers/analytics.hpp"
 #include <iostream>
 #include <limits>
 #include <string>
@@ -36,7 +37,8 @@ static void seller_menu() {
         cout << "\n[Seller: " << name << "]\n"
              << "1. Add item\n"
              << "2. Show my products\n"
-             << "3. Log out\n"
+             << "3. Show trending products (across marketplace)\n"
+             << "4. Log out\n"
              << "Choice: ";
         string choice;
         getline(cin, choice);
@@ -49,6 +51,8 @@ static void seller_menu() {
         } else if (choice == "2") {
             seller::show_current_products(name);
         } else if (choice == "3") {
+            analytics::show_trending();
+        } else if (choice == "4") {
             break;
         } else {
             cout << "Invalid choice.\n";
@@ -79,7 +83,8 @@ static void buyer_menu() {
              << "3. Add product to favourites\n"
              << "4. Show my cart\n"
              << "5. Show my favourites\n"
-             << "6. Log out\n"
+             << "6. Show trending products\n"
+             << "7. Log out\n"
              << "Choice: ";
         string choice;
         getline(cin, choice);
@@ -99,6 +104,8 @@ static void buyer_menu() {
         } else if (choice == "5") {
             buyer::show_favourites(name);
         } else if (choice == "6") {
+            analytics::show_trending();
+        } else if (choice == "7") {
             break;
         } else {
             cout << "Invalid choice.\n";
