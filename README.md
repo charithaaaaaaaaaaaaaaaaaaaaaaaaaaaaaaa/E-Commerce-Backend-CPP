@@ -23,4 +23,4 @@
     - Load all the parameters
     - On the seller side registration is same as buyer side
   
-## GUI implemented in python Tkintor
+
